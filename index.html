@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="PHOTOSWAP: Personalized Subject Swapping in Images">
+        content="PHOTOSWAP-2: Personalized Subject Swapping via Appearance Adaptation">
   <meta name="keywords" content="Object Swapping, Personalized Editing">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>PHOTOSWAP: Personalized Subject Swapping in Images</title>
+  <title>PHOTOSWAP-2: Personalized Subject Swapping via Appearance Adaptation</title>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
@@ -57,8 +57,6 @@
             <span class="author-block">
               <a href="http://nxzhao.com/">Nanxuan Zhao</a><sup>2</sup>,</span>
             <span class="author-block">
-              <a href="https://tsujuifu.github.io/">Tsu-Jui Fu</a><sup>3</sup>,</span>
-            <span class="author-block">
               <a href="https://wxiong.me/">Wei Xiong</a><sup>2</sup>,</span>
             <span class="author-block">
               <a href="https://qliu24.github.io/">Qing Liu</a><sup>2</sup>,</span>
@@ -76,53 +74,24 @@
           <div class="is-size-5 publication-authors">
             <span class="author-block"><sup>1</sup>University of California, Santa Cruz,</span>
             <span class="author-block"><sup>2</sup>Adobe,</span>
-            <span class="author-block"><sup>3</sup>University of California, Santa Barbara</span>
           </div>
           
           <br>
           <div class="is-size-5 publication-authors">
-            <span class="author-block"><b style="color:#e08ba0; font-weight:normal"> <b>In NeurIPS 2023</b> </b></span>
+            <span class="author-block"><b style="color:#e08ba0; font-weight:normal"> <b>Under Review</b> </b></span>
           </div>
 
           <div class="column has-text-centered">
             <div class="publication-links">
               <!-- PDF Link. -->
               <span class="link-block">
-                <a href="https://arxiv.org/pdf/2305.18286.pdf"
+                <a href="https://drive.google.com/file/d/1XNcGYdEtHit9sDJ3nUh_2rkbTvL51Kdz/view?usp=sharing"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fas fa-file-pdf"></i>
                   </span>
                   <span>Paper</span>
                 </a>
-              </span>
-              <span class="link-block">
-                <a href="https://arxiv.org/abs/2305.18286"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="ai ai-arxiv"></i>
-                  </span>
-                  <span>arXiv</span>
-                </a>
-              </span>
-              <!-- Code Link. -->
-              <span class="link-block">
-                <a href="https://github.com/g-jing/photoswap"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-github"></i>
-                  </span>
-                  <span>Code</span>
-                  </a>
-              </span>
-              <span class="link-block">
-                <a href="https://github.com/eric-ai-lab/photoswap/tree/main/benchmark" target="_blank"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="far fa-images"></i>
-                  </span>
-                  <span>Benchmark, to be released</span>
-                  </a>
               </span>
             </div>
 
@@ -136,11 +105,9 @@
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <img id="teaser" width="150%" src="./static/images/teaser-arxiv.png?03222242">
+      <img id="teaser" width="150%" src="./static/images/teaser-4.png?03222242">
       <h2 class="subtitle has-text-centered">
-        <p style="font-family:Times New Roman"><b>Figure 1. Photoswap can effortlessly replace the subject in a source image, which could be either synthetic (first two rows) or real 
-          (bottom row), with a personalized subject specified in reference images, while preserving the original 
-          subject pose and the composition of the source image. </b></p>
+        <p style="font-family:Times New Roman"><b>Figure 1. Compared with Photoswap, Photoswap-2 is adept at conducting precise subject replacement within a source image by integrating a personalized subject from reference images, all the while maintaining the integrity of the non-subject pixels. The model demonstrates proficiency in partial subject alterations with high fidelity. </b></p>
       </h2>
     </div>
   </div>
@@ -155,20 +122,18 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            In an era where images and visual content dominate our digital landscape, the ability to manipulate and
-             personalize these images has become a necessity.
-            Envision seamlessly substituting a tabby cat lounging on a sunlit window sill in a photograph with your
-             own playful puppy, all while preserving the original charm and composition of the image. 
-            We present <b>Photoswap</b>, a novel approach that enables this immersive image editing experience 
-            through personalized subject swapping in existing images.
-            <b>Photoswap</b> first learns the visual concept of the subject from reference images and then swaps it 
-            into the target image using pre-trained diffusion models in a training-free manner. We establish that a 
-            well-conceptualized visual subject can be seamlessly transferred to any image with appropriate self-attention
-             and cross-attention manipulation, maintaining the pose of the swapped subject and the overall coherence of the image. 
-            Comprehensive experiments underscore the efficacy and controllability of <b>Photoswap</b> in personalized 
-            subject swapping. Furthermore, <b>Photoswap</b> significantly outperforms baseline methods in human ratings across
-             subject swapping, background preservation, and overall quality, revealing its vast application potential, from
-              entertainment to professional editing.
+            Effective editing of personal content holds a pivotal role in enabling individuals to express their creativity,
+             weave captivating narratives within their visual stories, and elevate the overall quality and impact of their visual content. 
+             In this paper, we introduce a novel method for swapping semantic content within personal imagery to generate photo realistic results.
+              Specifically, our objective is to generate personalized images where the global texture appearance remains consistent with the source image, 
+              while the subject's identity is seamlessly swapped with user-defined concepts. Unlike existing methods such as Photoswap,
+               which transfers the subject without considering the source image's context, our work prioritizes the preservation of the source style during subject identity transfer.
+                 We introduced a unified appearance adaptation approach, enabling precise control over subject target location, shape, and style during the image generation process.
+                  Our location adaptation ensures background integrity and enhances editing involving multiple subjects,
+                   while shape and content adaptations are crucial for maintaining identity fidelity.
+                    Additionally, style adaptation addresses disparities in image style between the source and the generated image.  
+                    To demonstrate the robustness and versatility of our proposed method, we substantiate our claims through a combination 
+            of quantitative metrics and qualitative showcases, showing significant improvements over existing methods.
           </p>
         </div>
       </div>
@@ -182,22 +147,26 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-five-fifths">
-        <h2 class="title is-3"><img id="painting_icon" width="5%" src="https://cdn-icons-png.flaticon.com/512/5379/5379860.png"> Controllable Subject Swapping via Training-free Attention Swapping </h2> 
+        <h2 class="title is-3"><img id="painting_icon" width="5%" src="https://cdn-icons-png.flaticon.com/512/5379/5379860.png"> Targetted swapping with mask via appearance adaptation </h2> 
       </div>
     </div>
 
         <div class="columns is-centered has-text-centered">
           <div class="column is-six-fifths">
-            <div class="content has-text-justified">
+            <!-- <div class="content has-text-justified">
               <ul>
                 <li>Given several images of a new concept, the diffusion model first learns the concept and converts it into a token. </li>
                 <li>The attention output and attention map in the source image generation process are stored as control source </li>
                 <li>The stored intermediate variables would be transferred to the target image generation process</li>
               </ul>
-            </div>        
-            <img id="model" width="100%" src="./static/images/architecture.png">
+            </div>         -->
+            <img id="model" width="100%" src="./static/images/method.png">
             <h3 class="subtitle has-text-centered">
-              <p style="font-family:Times New Roman"><b>Figure 2. Photoswap pipeline.</b></p>
+              <p style="font-family:Times New Roman"><b>Figure 2. Overview of Photoswap-2 on swapping a subject from a source image into a personalized concept to get the target image.
+                 The personalized concept is first converted into textual space to be treated as concept appearance. 
+                 Meanwhile, the source image is first inverted into initial noise to obtain  U-Net variables (including attention map, attention output, and latent representation), 
+                 stored during the source image recovery process.
+                 These informative variables together with the extracted mask would be used for the appearance adaptation into the target image generation process.</b></p>
             </h3>   
 
 
@@ -210,34 +179,85 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-five-fifths">
-        <h2 class="title is-3"><img id="painting_icon" width="5%" src="https://cdn-icons-png.flaticon.com/512/5379/5379860.png"> Attention Swap Analysis </h2> 
+        <h2 class="title is-3"><img id="painting_icon" width="5%" src="https://cdn-icons-png.flaticon.com/512/5379/5379860.png"> Human Subject Swapping </h2> 
       </div>
     </div>
 
         <div class="columns is-centered has-text-centered">
           <div class="column is-six-fifths">
-            <div class="content has-text-justified">
+            <!-- <div class="content has-text-justified">
               <ul>
                 <li> With consistent steps, swapping the self-attention output provides superior control over the layout, including the subject's gestures and the background details.</li>
                 <li> Excessive swapping could affect the subject's identity, as the new concept introduced through the text prompt might be overshadowed by the swapping of the attention output or attention map.  </li>
                 <li> Replacing the attention map for an extensive number of steps can result in an image with significant noise, possibly due to a compatibility issue between the attention map and the v vector.</li>
               </ul>
-            </div>        
-            <img id="model" width="100%" src="./static/images/step_analysis.png">
+            </div>         -->
+            <img id="model" width="100%" src="./static/images/human-subject.png">
             <h3 class="subtitle has-text-centered">
-              <p style="font-family:Times New Roman"><b>Figure 3. Results at different swapping steps. </b></p>
+              <p style="font-family:Times New Roman"><b>Figure 3. Results for human subject swapping. </b></p>
             </h3>   
         </div>
   </div>
 </section>
 
 
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-five-fifths">
+        <h2 class="title is-3"><img id="painting_icon" width="5%" src="https://cdn-icons-png.flaticon.com/512/5379/5379860.png"> Non-human Subject Swapping </h2> 
+      </div>
+    </div>
 
-<section class="section"   style="background-color:#e4e4f781">
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-six-fifths">
+            <!-- <div class="content has-text-justified">
+              <ul>
+                <li> With consistent steps, swapping the self-attention output provides superior control over the layout, including the subject's gestures and the background details.</li>
+                <li> Excessive swapping could affect the subject's identity, as the new concept introduced through the text prompt might be overshadowed by the swapping of the attention output or attention map.  </li>
+                <li> Replacing the attention map for an extensive number of steps can result in an image with significant noise, possibly due to a compatibility issue between the attention map and the v vector.</li>
+              </ul>
+            </div>         -->
+            <img id="model" width="100%" src="./static/images/non-human-subject.png">
+            <h3 class="subtitle has-text-centered">
+              <p style="font-family:Times New Roman"><b>Figure 3. Results for non-human subject swapping. </b></p>
+            </h3>   
+        </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-five-fifths">
+        <h2 class="title is-3"><img id="painting_icon" width="5%" src="https://cdn-icons-png.flaticon.com/512/5379/5379860.png"> Robustness Demonstration. </h2> 
+      </div>
+    </div>
+
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-six-fifths">
+            <!-- <div class="content has-text-justified">
+              <ul>
+                <li> With consistent steps, swapping the self-attention output provides superior control over the layout, including the subject's gestures and the background details.</li>
+                <li> Excessive swapping could affect the subject's identity, as the new concept introduced through the text prompt might be overshadowed by the swapping of the attention output or attention map.  </li>
+                <li> Replacing the attention map for an extensive number of steps can result in an image with significant noise, possibly due to a compatibility issue between the attention map and the v vector.</li>
+              </ul>
+            </div>         -->
+            <img id="model" width="100%" src="./static/images/robustness.png">
+            <h3 class="subtitle has-text-centered">
+              <p style="font-family:Times New Roman"><b>Figure 3. Photoswap-2 results on cross-domain image subject
+                swap. With a variety of source images, including graphic, blackwhite photos, and oil paintings, the framework seamlessly integrates concept subjects taken from regular internet images into
+                these diverse source images. </b></p>
+            </h3>   
+        </div>
+  </div>
+</section>
+
+<!-- <section class="section"   style="background-color:#e4e4f781">
   <div class="columns is-centered has-text-centered">
       <div style="width:90%;">
 
-        <!-- Abstract. -->
         <div style="float:left; width:47.1%; border: 0px solid black;">
           <h2 class="title is-5">I. Multi-subject swap</h2>
           <div class="content has-text-justified">
@@ -251,7 +271,7 @@
               </div>
           </div>
         </div>
-        <!--/ Abstract. -->
+
 
         <div style=" float:right; width:47.8%; border: 0px solid black;">
           <h2 class="title is-5">II. Occluded subject swap</h2>
@@ -269,9 +289,9 @@
 
       </div>  
     </div>     
-</section>
+</section> -->
 
-
+<!-- 
 <section class="section">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
@@ -340,9 +360,9 @@
         </div>
   </div>
 </section>
+ -->
 
-
-
+<!-- 
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
@@ -355,7 +375,7 @@
       primaryClass={cs.CV}
 }</code></pre>
   </div>
-</section>
+</section> -->
 
 
 <footer class="footer">
